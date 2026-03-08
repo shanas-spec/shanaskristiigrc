@@ -15,6 +15,7 @@
             align-items: center;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #FFDEE9 0%, #B5FFFC 100%);
+            
         }
 
         
@@ -75,13 +76,35 @@
 <body>
 
     <div class="search-wrapper">
-        <h2>Temukan Inspirasi</h2>
+        <h1>SHANS search</h1>
         <div class="search-box">
-            <input type="text" placeholder="Cari topik favoritmu...">
-            <button>Cari</button>
+            <form action="https://www.google.com/search" method="GET">
+            <input type="text" name="q" placeholder="Cari topik favoritmu..." required>
+            <button type="submit">Search</button>
+            </form>
         </div>
-    </div>
-
+<div class="container-berita">
+    <main class="isi-berita">
+    <aside class="sidebar">
+        <h3>Berita Terkait</h3>
+        <ul class="daftar-berita">
+            <li>
+                <a href="#">
+                    <span>Inovasi Terbaru di Bidang Teknologi 2026</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span>Cara Mengamankan Data Pribadi di Internet</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span>Masa Depan AI dalam Pendidikan Tinggi</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+</div>
 </body>
 </html>
-
