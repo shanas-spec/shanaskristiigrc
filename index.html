@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shans Search</title>
+    <style>
+    
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #FFDEE9 0%, #B5FFFC 100%);
+        }
+
+        
+        .search-wrapper {
+            background: rgba(255, 255, 255, 0.7); 
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px); 
+            text-align: center;
+        }
+
+        h2 { color: #576574; margin-bottom: 20px; }
+
+        
+        .search-box {
+            position: relative;
+            display: flex;
+            gap: 10px;
+        }
+
+        input[type="text"] {
+            padding: 12px 20px;
+            width: 300px;
+            border: 2px solid #A1C4FD;
+            border-radius: 50px;
+            outline: none;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+
+        
+        input[type="text"]:focus {
+            border-color: #FF9A9E;
+            box-shadow: 0 0 15px rgba(255, 154, 158, 0.4);
+        }
+
+        
+        button {
+            padding: 12px 25px;
+            background: linear-gradient(45deg, #FF9A9E, #FEB47B);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 154, 158, 0.4);
+            background: linear-gradient(45deg, #A1C4FD, #C2E9FB); 
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="search-wrapper">
+        <h2>Temukan Inspirasi</h2>
+        <div class="search-box">
+            <input type="text" placeholder="Cari topik favoritmu...">
+            <button>Cari</button>
+        </div>
+    </div>
+
+</body>
+</html>
+
