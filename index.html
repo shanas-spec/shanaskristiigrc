@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width>, initial-scale=1.0">
+    <title>Shan search</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="search-container">
+        <h1 class="logo">Cari<span>Aja</span>/h1>
+
+        <div class="search-box">
+            <input type="text" id="search-input" placeholder="Penelusuran...">
+            <button id="search-button"></button>
+        </div>
+
+        <div id="results-area" class="results-container"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+}
+
+.search-container {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.logo {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    color: #4285f4;
+}
+
+.logo span { color: #ea4335; }
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 15px 25px;
+    border: 1px solid #dfe1e5;
+    border-radius: 24px;
+    font-size: 16px;
+    outline: none;
+    box-shadow: 0 1px 6px rgba(32,33,36,0,28);
+}
+
+button {
+    padding: 10px 25px;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 24px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover { background color: #1558b0; }
+
+.result-item {
+    text-align: left;
+    background: white;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.result-item a {
+    color: #1a0dab;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.result-item p { color: #4d5156; margin-top: 5px; }
+const searchInput = document.getElementById('search-input');
+const searchButton = document.getElementById('search-button');
+const resultsArea = document.getElementById('results-area');
+
+// Data simulasi (Mock Data)
+const mockData = [
+    { title: "Belajar JavaScript untuk Pemula", url: "#", desc: "Panduan lengkap belajar JS dari nol sampai mahir." },
+    { title: "Resep Nasi Goreng Spesial", url: "#", desc: "Cara membuat nasi goreng enak dalam 10 menit." },
+    { title: "Wisata Tersembunyi di Bali", url: "#", desc: "Daftar pantai yang jarang dikunjungi turis di Bali." },
+    { title: "Tips Coding Efisien", url: "#", desc: "Cara menulis kode yang bersih dan mudah dipelihara." }
+];
+
+function performSearch() {
+    const query = searchInput.value.toLowerCase();
+    resultsArea.innerHTML = ""; // Bersihkan hasil sebelumnya
+
+    if (query.trim() === "") return;
+
+    const filteredResults = mockData.filter(item => 
+        item.title.toLowerCase().includes(query) || 
+        item.desc.toLowerCase().includes(query)
+    );
+
+    if (filteredResults.length > 0) {
+        filteredResults.forEach(result => {
+            const html = `
+                <div class="result-item">
+                    <a href="${result.url}">${result.title}</a>
+                    <p>${result.desc}</p>
+                </div>
+            `;
+            resultsArea.innerHTML += html;
+        });
+    } else {
+        resultsArea.innerHTML = "<p>Tidak ada hasil ditemukan.</p>";
+    }
+}
+
+// Jalankan pencarian saat tombol diklik atau menekan Enter
+searchButton.addEventListener('click', performSearch);
+searchInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') performSearch();
+});
